@@ -22,7 +22,7 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 ## Component Breakdown
 
 ### 1. Data Sources
-- **UK Retail Dataset**: Historical e-commerce transaction data
+- **UK Retail Dataset**: e-commerce transaction data
 - **Simulated Events**: Real-time customer behavior events
 - **API Events**: Direct events from applications
 
@@ -55,7 +55,6 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 ### 5. Analytics Layer
 - **Data Transformation**:
   - **dbt**: SQL-based transformations
-  - **Metrics calculation**: Business KPIs and metrics
 - **Machine Learning**:
   - **Customer Segmentation**: Grouping customers by behavior
   - **Product Recommendations**: Collaborative filtering
@@ -69,7 +68,6 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 
 ### 7. Visualization
 - **Grafana**: Real-time dashboard
-- **Metabase**: Business intelligence for non-technical users
 
 ### 8. Infrastructure
 - **Docker**: Containerization
@@ -81,7 +79,7 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 ## Data Flow
 
 ### Real-time Flow
-1. Customer events are generated (purchases, page views, etc.)
+1. Customer events are generated 
 2. Events are published to Kafka topics
 3. Flink consumes events, enriches them, and calculates metrics
 4. Processed events are stored in MongoDB
