@@ -1,0 +1,165 @@
+ecommerce-analytics/
+│
+├── .github/                               # GitHub configuration
+│   └── workflows/                         # CI/CD workflows
+│       ├── ci-cd.yml                      # Main CI/CD pipeline
+│       └── testing.yml                    # Test automation workflow
+│
+├── api_service/                           # API service
+│   ├── app/                               # API application code
+│   │   ├── __init__.py
+│   │   ├── main.py                        # Main FastAPI application
+│   │   ├── config.py                      # Configuration settings
+│   │   ├── api/                           # API endpoints
+│   │   │   ├── __init__.py
+│   │   │   ├── routes/                    # Route definitions
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── dashboard.py           # Dashboard endpoints
+│   │   │   │   └── customers.py           # Customer endpoints
+│   │   │   └── models/                    # Data models
+│   │   │       ├── __init__.py
+│   │   │       └── metrics.py             # API data models
+│   │   ├── core/                          # Core functionality
+│   │   │   ├── __init__.py
+│   │   │   └── security.py                # Authentication/security
+│   │   └── db/                            # Database connections
+│   │       ├── __init__.py
+│   │       └── mongodb.py                 # MongoDB client
+│   ├── tests/                             # API tests
+│   │   ├── __init__.py
+│   │   └── test_api.py                    # API tests
+│   ├── Dockerfile                         # Docker config for API
+│   └── requirements.txt                   # Python dependencies
+│
+├── data_ingestion/                        # Data ingestion components
+│   ├── __init__.py
+│   ├── loaders/                           # Data loaders
+│   │   ├── __init__.py
+│   │   ├── uk_retail_loader.py            # UK Retail dataset loader
+│   │   └── event_simulator.py             # Event simulator
+│   ├── producers/                         # Event producers
+│   │   ├── __init__.py
+│   │   └── event_producer.py              # Kafka event producer
+│   └── kafka/                             # Kafka configuration
+│       ├── topics/                        # Kafka topics
+│       │   └── create_topics.sh           # Script to create topics
+│       └── connectors/                    # Kafka connectors
+│           └── s3_sink.json               # S3 sink connector config
+│
+├── flink_processing/                      # Flink stream processing
+│   ├── python/                            # Python implementation
+│   │   ├── __init__.py
+│   │   └── stream_processor.py            # Python Flink job
+│   ├── src/                               # Java implementation
+│   │   └── main/
+│   │       ├── java/
+│   │       │   └── com/
+│   │       │       └── ecommerce/
+│   │       │           └── analytics/
+│   │       │               ├── RealTimeAnalytics.java  # Main Flink job
+│   │       │               ├── models/                # Data models
+│   │       │               │   ├── CustomerEvent.java # Event model
+│   │       │               │   └── EnrichedEvent.java # Enriched model
+│   │       │               └── functions/             # Processing functions
+│   │       │                   └── EnrichmentFunction.java # Enrichment function
+│   │       └── resources/
+│   │           └── log4j2.properties      # Logging config
+│   ├── conf/                              # Flink configuration
+│   │   └── flink-conf.yaml                # Flink configuration
+│   ├── build.sh                           # Build script
+│   ├── submit.sh                          # Job submission script
+│   ├── Dockerfile                         # Flink Dockerfile
+│   └── pom.xml                            # Maven config for Java
+│
+├── airflow_dags/                          # Airflow DAGs
+│   ├── dags/                              # DAG definitions
+│   │   └── customer_data_pipeline.py      # Customer data DAG
+│   ├── plugins/                           # Airflow plugins
+│   │   └── __init__.py
+│   ├── Dockerfile                         # Airflow Dockerfile
+│   ├── entrypoint.sh                      # Airflow entrypoint script
+│   └── requirements.txt                   # Python dependencies
+│
+├── dbt_transforms/                        # dbt data transformations
+│   ├── models/                            # dbt models
+│   │   ├── staging/                       # Staging models
+│   │   │   └── stg_transactions.sql       # Transactions staging
+│   │   ├── warehouse/                     # Warehouse models
+│   │   │   ├── fact_transactions.sql      # Transactions fact
+│   │   │   ├── dim_customers.sql          # Customers dimension
+│   │   │   ├── dim_products.sql           # Products dimension
+│   │   │   └── dim_dates.sql              # Dates dimension
+│   │   ├── aggregations/                  # Aggregated models
+│   │   │   ├── agg_daily_sales.sql        # Daily sales
+│   │   │   ├── agg_product_sales.sql      # Product sales
+│   │   │   └── agg_customer_segments.sql  # Customer segments
+│   │   └── marts/                         # Data marts
+│   │       ├── mart_product_analysis.sql  # Product analysis
+│   │       ├── mart_customer_insights.sql # Customer insights
+│   │       └── mart_time_series.sql       # Time series
+│   ├── dbt_project.yml                    # dbt project config
+│   └── profiles.yml                       # dbt profiles
+│
+├── ml_models/                             # Machine learning models
+│   ├── training/                          # Model training
+│   │   ├── __init__.py
+│   │   ├── customer_segmentation.py       # Customer segmentation
+│   │   └── product_recommendations.py     # Product recommendations
+│   ├── serving/                           # Model serving
+│   │   ├── __init__.py
+│   │   └── prediction_service.py          # Prediction service
+│   ├── Dockerfile                         # ML service Dockerfile
+│   └── requirements.txt                   # Python dependencies
+│
+├── infrastructure/                        # Infrastructure as code
+│   ├── terraform/                         # Terraform configuration
+│   │   ├── main.tf                        # Main Terraform config
+│   │   └── variables.tf                   # Terraform variables
+│   ├── kubernetes/                        # Kubernetes manifests
+│   │   ├── namespace.yaml                 # Namespace definition
+│   │   ├── configmap.yaml                 # ConfigMap
+│   │   ├── secrets.yaml                   # Secrets
+│   │   ├── mongodb-statefulset.yaml       # MongoDB StatefulSet
+│   │   ├── kafka-statefulset.yaml         # Kafka StatefulSet
+│   │   ├── zookeeper-statefulset.yaml     # ZooKeeper StatefulSet
+│   │   ├── redis-deployment.yaml          # Redis Deployment
+│   │   ├── api-service-deployment.yaml    # API Deployment
+│   │   ├── flink-jobmanager-deployment.yaml  # Flink JobManager
+│   │   ├── flink-taskmanager-deployment.yaml # Flink TaskManager
+│   │   └── ml-service-deployment.yaml     # ML Service Deployment
+│   └── mongodb/                           # MongoDB configuration
+│       └── init-db.js                     # MongoDB initialization
+│
+├── monitoring/                            # Monitoring configuration
+│   ├── grafana/                           # Grafana configuration
+│   │   ├── dashboards/                    # Dashboard definitions
+│   │   │   ├── sales_metrics.json         # Sales dashboard
+│   │   │   ├── customer_insights.json     # Customer dashboard
+│   │   │   └── system_monitoring.json     # System dashboard
+│   │   └── provisioning/                  # Grafana provisioning
+│   │       └── datasources/               # Data sources
+│   │           └── datasources.yaml       # Data sources config
+│   └── prometheus/                        # Prometheus configuration
+│       └── prometheus.yml                 # Prometheus config
+│
+├── scripts/                               # Utility scripts
+│   ├── setup.sh                           # Setup script
+│   ├── download_dataset.sh                # Dataset download script
+│   └── deploy.sh                          # Deployment script
+│
+├── docs/                                  # Documentation
+│   ├── architecture.md                    # Architecture doc
+│   ├── data_dictionary.md                 # Data dictionary
+│   └── development_guide.md               # Development guide
+│
+├── data/                                  # Data directory
+│   ├── raw/                               # Raw data
+│   │   └── online_retail_II.csv           # UK Retail dataset
+│   └── processed/                         # Processed data
+│       └── uk_retail_events.json          # Processed events
+│
+├── .env.example                           # Example environment variables
+├── .gitignore                             # Git ignore file
+├── docker-compose.yml                     # Docker Compose config
+├── LICENSE                                # License file
+└── README.md                              # Project README
