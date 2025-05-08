@@ -147,3 +147,5 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
                      │                                          │
                      └──────────────────────────────────────────┘
 ```
+
+Dataset Link : https://www.kaggle.com/datasets/carrie1/ecommerce-data/data
