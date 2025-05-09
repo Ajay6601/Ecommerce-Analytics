@@ -4,11 +4,10 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Flink/Flink" />
-        <option name="gradleJvm" value="openjdk-24" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Flink_service/Flink" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/Flink/Flink" />
+            <option value="$PROJECT_DIR$/Flink_service/Flink" />
           </set>
         </option>
       </GradleProjectSettings>
