@@ -1,9 +1,6 @@
 version: '3.8'
 
 services:
-  #======================================================
-  # Data Storage & Streaming Services
-  #======================================================
 
   # Zookeeper for Kafka
   zookeeper:
@@ -142,9 +139,6 @@ services:
       start_period: 30s
       timeout: 5s
 
-  #======================================================
-  # Processing Services
-  #======================================================
 
   # Airflow Webserver
   airflow-webserver:
@@ -230,9 +224,7 @@ services:
     networks:
       - app-network
 
-  #======================================================
   # Application Services
-  #======================================================
 
   # API Service
   api-service:
@@ -272,9 +264,7 @@ services:
     depends_on:
       - postgres
 
-  #======================================================
   # Monitoring Services
-  #======================================================
 
   # Grafana for visualization
   grafana:
