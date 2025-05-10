@@ -4,10 +4,10 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Flink_service/Flink" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/flink_processing" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/Flink_service/Flink" />
+            <option value="$PROJECT_DIR$/flink_processing" />
           </set>
         </option>
       </GradleProjectSettings>

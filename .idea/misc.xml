@@ -5,7 +5,7 @@
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/Flink_service/Flink" />
+    <file type="web" url="file://$PROJECT_DIR$/flink_processing" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" project-jdk-name="ms-11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" project-jdk-name="ms-11" project-jdk-type="JavaSDK" />
 </project>
