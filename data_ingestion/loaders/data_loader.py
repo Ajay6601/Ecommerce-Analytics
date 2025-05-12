@@ -265,7 +265,7 @@ def parse_args():
 if __name__ == "__main__":
     try:
         input_path = "C:/Users/ajayr/PycharmProjects/Ecommerce-Analytics/data/raw/data.csv"
-        output_path = "C:/Users/ajayr/PycharmProjects/Ecommerce-Analytics/data/raw/events.json"
+        output_path = "C:/Users/ajayr/PycharmProjects/Ecommerce-Analytics/data/processed/events.json"
         include_anonymous = True
 
         # Initialize and run the loader
