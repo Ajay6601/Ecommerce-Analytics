@@ -78,6 +78,39 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 
 ## Data Flow
 
+UK Retail CSV (Raw Data)
+      │
+      ▼
+Data Loader (Python Script)
+      │
+      ▼
+Event JSON File (Processed Events)
+      │
+      ▼
+Event Simulator (Python)
+      │
+      ▼
+Kafka Topic: `uk-retail-raw`
+      │
+      ▼
+Flink Processor (Python/Java)
+      │
+      ▼
+MongoDB (Processed Collections)
+      │
+      ▼
+FastAPI (API Service)
+      │
+      ▼
+Airflow DAGs (ETL Jobs)
+      │
+      ▼
+Data Warehouse (Snowflake/PostgreSQL)
+      │
+      ▼
+dbt Models (SQL Transformations)
+
+
 ### Real-time Flow
 1. Customer events are generated 
 2. Events are published to Kafka topics
