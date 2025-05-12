@@ -78,6 +78,29 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 
 ## Data Flow
 
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  UK Retail CSV  │────▶│  Data Loader    │────▶│ Event JSON File │
+│  (Raw Data)     │     │  (Python)       │     │ (Processed Data)│
+└─────────────────┘     └─────────────────┘     └────────┬────────┘
+                                                          │
+                                                          ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│ Flink Processor │◀────│  Kafka Topic    │◀────│ Event Simulator │
+│ (Python/Java)   │     │  (uk-retail-raw)│     │ (Python)        │
+└────────┬────────┘     └─────────────────┘     └─────────────────┘
+         │
+         ▼
+┌─────────────────┐     ┌─────────────────┐
+│  MongoDB        │────▶│  API Service    │
+│  Collections    │     │  (FastAPI)      │
+└────────┬────────┘     └─────────────────┘
+         │
+         ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Airflow DAGs   │────▶│ Data Warehouse  │────▶│  dbt Models     │
+│  (Batch ETL)    │     │ (Snowflake/PG)  │     │  (SQL)          │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+
 ### Real-time Flow
 1. Customer events are generated 
 2. Events are published to Kafka topics
