@@ -31,8 +31,8 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
@@ -46,8 +46,8 @@ dependencies {
     implementation("org.apache.flink:flink-connector-kafka:${flinkVersion}")
 
     // MongoDB connector for storing events (optional)
-    implementation("org.mongodb:mongodb-driver-sync:${mongodbVersion}")
-
+//    implementation("org.mongodb:mongodb-driver-sync:${mongodbVersion}")
+    implementation("org.mongodb:mongodb-driver-sync:4.7.1")
     // JSON processing with Jackson
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
     implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
