@@ -102,11 +102,7 @@ class UKRetailLoader:
         try:
             # Create a lookup dictionary for previous purchases by customer
             customer_purchases = {}
-
-            # Sort by date for chronological processing
             df = df.sort_values('InvoiceDate')
-
-            # Track event type distribution
             event_type_counts = {}
 
             for idx, row in df.iterrows():
@@ -144,7 +140,6 @@ class UKRetailLoader:
                         'invoice_no': row['InvoiceNo']
                     }
 
-                # Track event type counts
                 event_type_counts[event_type] = event_type_counts.get(event_type, 0) + 1
 
                 # Create the event
@@ -213,7 +208,6 @@ class UKRetailLoader:
             return
 
         try:
-            # Create output directory if it doesn't exist
             os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
 
             logger.info(f"Saving {len(events):,} events to {self.output_path}")
@@ -232,17 +226,10 @@ class UKRetailLoader:
         start_time = datetime.now()
 
         try:
-            # Load and preprocess the data
             df = self.load_data()
-
-            # Transform to events
             events = self.transform_to_events(df)
-
-            # Save events if output path is specified
             if self.output_path:
                 self.save_events(events)
-
-            # Log processing statistics
             processing_time = (datetime.now() - start_time).total_seconds()
             events_per_second = len(events) / processing_time if processing_time > 0 else 0
             logger.info(f"Processing completed in {processing_time:.2f} seconds ({events_per_second:.1f} events/second)")
@@ -267,13 +254,9 @@ if __name__ == "__main__":
         input_path = "C:/Users/ajayr/PycharmProjects/Ecommerce-Analytics/data/raw/data.csv"
         output_path = "C:/Users/ajayr/PycharmProjects/Ecommerce-Analytics/data/processed/events.json"
         include_anonymous = True
-
-        # Initialize and run the loader
         loader = UKRetailLoader(input_path, output_path, include_anonymous)
         events = loader.process()
-
         print(f"Processed {len(events):,} events successfully")
-
     except Exception as e:
         logger.error(f"Fatal error: {e}", exc_info=True)
         print(f"Error: {e}")
