@@ -78,6 +78,8 @@ Advanced ecommerce analytics platform with data ingestion, processing, and ML ca
 
 ## Data Flow
 
+
+
 ### Real-time Flow
 1. Customer events are generated 
 2. Events are published to Kafka topics
