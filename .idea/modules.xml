@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Ecommerce-Analytics.iml" filepath="$PROJECT_DIR$/.idea/Ecommerce-Analytics.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Flink.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Flink.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flink_processing.main.iml" filepath="$PROJECT_DIR$/.idea/modules/flink_processing.main.iml" />
     </modules>
   </component>
 </project>
